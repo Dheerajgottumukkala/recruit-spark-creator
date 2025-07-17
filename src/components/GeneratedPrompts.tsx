@@ -85,32 +85,32 @@ const GeneratedPrompts = ({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Header */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold mb-3">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">
           <span className="gradient-text">Your Optimized Search Prompts</span>
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
           AI-generated search prompts tailored for each platform. Copy and paste these into your 
           recruitment platforms for precise candidate searches.
         </p>
       </div>
 
       {/* Generation Summary */}
-      <div className="max-w-4xl mx-auto glass-card p-6">
-        <div className="grid md:grid-cols-3 gap-4">
+      <div className="max-w-5xl mx-auto glass-card p-8">
+        <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="text-2xl font-bold text-brand-purple">{selectedPlatforms.length}</div>
-            <div className="text-sm text-muted-foreground">Platforms</div>
+            <div className="text-4xl font-bold text-purple-600 mb-2">{selectedPlatforms.length}</div>
+            <div className="text-gray-600 font-medium">Platforms Optimized</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-brand-pink">{jobDescription.split(' ').length}</div>
-            <div className="text-sm text-muted-foreground">Keywords Analyzed</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">{jobDescription.split(' ').length}</div>
+            <div className="text-gray-600 font-medium">Keywords Analyzed</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-500">{uploadedFile ? 'Yes' : 'No'}</div>
-            <div className="text-sm text-muted-foreground">Company Data</div>
+            <div className="text-4xl font-bold text-green-600 mb-2">{uploadedFile ? 'Enhanced' : 'Standard'}</div>
+            <div className="text-gray-600 font-medium">AI Analysis Mode</div>
           </div>
         </div>
       </div>
@@ -118,12 +118,12 @@ const GeneratedPrompts = ({
       {/* Generated Prompts */}
       <div className="max-w-6xl mx-auto">
         <Tabs defaultValue={selectedPlatforms[0]} className="w-full">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-6">
+          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 bg-gray-100 p-2 rounded-2xl">
             {selectedPlatforms.map(platform => (
               <TabsTrigger 
                 key={platform} 
                 value={platform}
-                className="data-[state=active]:bg-gradient-primary data-[state=active]:text-white"
+                className="data-[state=active]:bg-white data-[state=active]:text-purple-700 data-[state=active]:shadow-md font-semibold rounded-xl transition-all duration-300"
               >
                 {platformNames[platform as keyof typeof platformNames]}
               </TabsTrigger>
@@ -131,59 +131,59 @@ const GeneratedPrompts = ({
           </TabsList>
 
           {selectedPlatforms.map(platform => (
-            <TabsContent key={platform} value={platform} className="space-y-4">
-              <div className="glass-card p-6">
+            <TabsContent key={platform} value={platform} className="space-y-6">
+              <div className="glass-card p-8">
                 {/* Platform Header */}
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900">
                     {platformNames[platform as keyof typeof platformNames]} Search Prompt
                   </h3>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-3">
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => copyToClipboard(prompts[platform as keyof typeof prompts], platform)}
-                      className="hover:bg-secondary"
+                      className="hover:bg-purple-50 hover:border-purple-300 hover:text-purple-700 transition-all duration-300"
                     >
                       {copiedPrompt === platform ? (
-                        <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                        <CheckCircle className="h-4 w-4 mr-2 text-green-600" />
                       ) : (
                         <Copy className="h-4 w-4 mr-2" />
                       )}
-                      {copiedPrompt === platform ? 'Copied!' : 'Copy'}
+                      {copiedPrompt === platform ? 'Copied!' : 'Copy Prompt'}
                     </Button>
                   </div>
                 </div>
 
                 {/* Prompt Display */}
-                <div className="bg-muted/20 rounded-lg p-4 font-mono text-sm leading-relaxed border border-border/50">
-                  <pre className="whitespace-pre-wrap break-words">
+                <div className="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 font-mono text-sm leading-relaxed hover:border-purple-300 transition-all duration-300">
+                  <pre className="whitespace-pre-wrap break-words text-gray-800">
                     {prompts[platform as keyof typeof prompts]}
                   </pre>
                 </div>
 
                 {/* Platform Tips */}
-                <div className="mt-4 p-4 bg-secondary/30 rounded-lg">
-                  <h4 className="font-medium mb-2 flex items-center">
-                    <Eye className="h-4 w-4 mr-2 text-brand-purple" />
-                    Platform-Specific Tips
+                <div className="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
+                  <h4 className="font-bold mb-3 flex items-center text-blue-800">
+                    <Eye className="h-5 w-5 mr-3 text-blue-600" />
+                    Platform-Specific Optimization Tips
                   </h4>
                   {platform === 'monster' && (
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-blue-700 leading-relaxed">
                       Use Boolean operators (AND, OR) and quotation marks for exact phrases. 
-                      Monster supports complex search queries with parentheses for grouping.
+                      Monster supports complex search queries with parentheses for grouping terms effectively.
                     </p>
                   )}
                   {platform === 'naukri' && (
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-blue-700 leading-relaxed">
                       Naukri works best with comma-separated keywords. Use specific job titles 
-                      and skills. Location and experience filters work better as separate filters.
+                      and skills. Location and experience filters work better as separate filter options.
                     </p>
                   )}
                   {platform === 'ceipal' && (
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-blue-700 leading-relaxed">
                       Ceipal uses structured search with categories. Separate skills, experience, 
-                      and location for better AI matching and cultural fit assessment.
+                      and location for optimal AI matching and cultural fit assessment.
                     </p>
                   )}
                 </div>
@@ -193,13 +193,13 @@ const GeneratedPrompts = ({
         </Tabs>
 
         {/* Action Buttons */}
-        <div className="flex justify-center space-x-4 mt-8">
-          <Button onClick={downloadPrompts} className="btn-gradient">
-            <Download className="h-4 w-4 mr-2" />
+        <div className="flex justify-center space-x-6 mt-12">
+          <Button onClick={downloadPrompts} className="btn-gradient text-lg px-8 py-3 rounded-xl font-semibold">
+            <Download className="h-5 w-5 mr-3" />
             Download All Prompts
           </Button>
-          <Button variant="outline" className="hover:bg-secondary">
-            <Share2 className="h-4 w-4 mr-2" />
+          <Button variant="outline" className="text-lg px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 border-2">
+            <Share2 className="h-5 w-5 mr-3" />
             Share Results
           </Button>
         </div>

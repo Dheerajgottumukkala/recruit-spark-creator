@@ -24,34 +24,39 @@ const JobDescriptionInput = ({ onJobDescriptionChange, jobDescription }: {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Header */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold mb-3">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">
           <span className="gradient-text">Describe Your Perfect Candidate</span>
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Paste your job description below or upload company documents to get started. 
-          Our AI will analyze the requirements and generate optimized search prompts.
+        <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+          Paste your job description below or upload company documents. Our AI will analyze 
+          requirements and generate platform-optimized search prompts.
         </p>
       </div>
 
       {/* Input Section */}
-      <div className="max-w-4xl mx-auto">
-        <div className="glass-card p-6 space-y-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="glass-card p-8 space-y-6">
           {/* Header with Sample Button */}
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <FileText className="h-5 w-5 text-brand-purple" />
-              <label className="text-sm font-medium">Job Description</label>
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center">
+                <FileText className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <label className="text-lg font-semibold text-gray-900">Job Description</label>
+                <p className="text-sm text-gray-500">Paste your requirements or use our sample</p>
+              </div>
             </div>
             <Button 
               variant="outline" 
               size="sm" 
               onClick={insertSample}
-              className="text-xs hover:bg-secondary"
+              className="hover:bg-purple-50 hover:border-purple-300 hover:text-purple-700 transition-all duration-300"
             >
-              <Lightbulb className="h-3 w-3 mr-1" />
+              <Lightbulb className="h-4 w-4 mr-2" />
               Try Sample
             </Button>
           </div>
@@ -62,34 +67,43 @@ const JobDescriptionInput = ({ onJobDescriptionChange, jobDescription }: {
               placeholder="Enter your job description here... (e.g., We need a software engineer with Python and machine learning skills in San Francisco with 5 years of experience)"
               value={jobDescription}
               onChange={handleChange}
-              className="min-h-[200px] bg-input/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none text-base leading-relaxed"
+              className="min-h-[240px] input-glow border-2 border-gray-200 focus:border-purple-400 focus:ring-4 focus:ring-purple-100 transition-all duration-300 resize-none text-base leading-relaxed font-medium placeholder:text-gray-400"
               maxLength={maxCharacters}
             />
             
             {/* Character Counter */}
-            <div className="absolute bottom-3 right-3 text-xs text-muted-foreground bg-card/80 backdrop-blur-sm px-2 py-1 rounded">
-              {characterCount}/{maxCharacters}
+            <div className="absolute bottom-4 right-4 text-sm text-gray-500 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-gray-200 shadow-sm">
+              <span className={characterCount > maxCharacters * 0.9 ? 'text-orange-600 font-semibold' : ''}>{characterCount}</span>
+              <span className="text-gray-400">/{maxCharacters}</span>
             </div>
           </div>
 
           {/* Smart Suggestions */}
           {jobDescription && (
-            <div className="border-t border-border/50 pt-4">
-              <div className="flex items-center space-x-2 mb-3">
-                <Lightbulb className="h-4 w-4 text-brand-purple" />
-                <span className="text-sm font-medium">AI Suggestions</span>
+            <div className="border-t border-gray-200 pt-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <Lightbulb className="h-4 w-4 text-purple-600" />
+                </div>
+                <span className="text-lg font-semibold text-gray-900">AI Analysis Preview</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-secondary/50 rounded-lg p-3">
-                  <h4 className="text-sm font-medium text-brand-purple mb-1">Skills Detected</h4>
-                  <p className="text-xs text-muted-foreground">
-                    Python, Machine Learning, TensorFlow, AWS, Docker
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-purple-50 border border-purple-200 rounded-xl p-4 hover:bg-purple-100 transition-all duration-300">
+                  <h4 className="text-sm font-bold text-purple-700 mb-2 flex items-center">
+                    <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                    Skills Detected
+                  </h4>
+                  <p className="text-sm text-gray-700 font-medium">
+                    Python, Machine Learning, TensorFlow, AWS, Docker, Kubernetes
                   </p>
                 </div>
-                <div className="bg-secondary/50 rounded-lg p-3">
-                  <h4 className="text-sm font-medium text-brand-pink mb-1">Experience Level</h4>
-                  <p className="text-xs text-muted-foreground">
-                    5+ years senior level
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 hover:bg-blue-100 transition-all duration-300">
+                  <h4 className="text-sm font-bold text-blue-700 mb-2 flex items-center">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                    Experience Level
+                  </h4>
+                  <p className="text-sm text-gray-700 font-medium">
+                    5+ years senior level position
                   </p>
                 </div>
               </div>
