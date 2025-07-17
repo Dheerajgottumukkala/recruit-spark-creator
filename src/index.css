@@ -8,62 +8,74 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark theme with purple/pink gradients for Project O */
-    --background: 222 20% 8%;
-    --foreground: 210 40% 98%;
+    /* Modern dark theme inspired by premium UI designs */
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
 
-    --card: 222 25% 12%;
-    --card-foreground: 210 40% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 222 25% 12%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
 
-    --primary: 266 83% 67%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 213 31% 91%;
 
-    --secondary: 222 25% 18%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 14% 11%;
+    --secondary-foreground: 213 31% 91%;
 
-    --muted: 222 25% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
 
-    --accent: 328 85% 70%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 316 70% 50%;
+    --accent-foreground: 213 31% 91%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 25% 20%;
-    --input: 222 25% 15%;
-    --ring: 266 83% 67%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 263 70% 50%;
 
-    /* Project O Brand Colors */
-    --brand-purple: 266 83% 67%;
-    --brand-purple-light: 271 91% 74%;
-    --brand-pink: 328 85% 70%;
-    --brand-pink-light: 330 81% 76%;
+    /* Premium Brand Colors */
+    --brand-purple: 263 70% 50%;
+    --brand-purple-light: 270 91% 65%;
+    --brand-purple-dark: 260 60% 35%;
+    --brand-pink: 316 70% 50%;
+    --brand-pink-light: 330 81% 65%;
+    --brand-blue: 217 91% 60%;
+    --brand-cyan: 189 85% 60%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-purple)), hsl(var(--brand-pink)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--brand-purple) / 0.8), hsl(var(--brand-pink) / 0.8));
-    --gradient-bg: linear-gradient(135deg, hsl(var(--background)), hsl(222 25% 10%));
-    --gradient-card: linear-gradient(135deg, hsl(var(--card) / 0.8), hsl(222 25% 10% / 0.8));
+    /* Advanced Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%), hsl(316 70% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(263 70% 50% / 0.1), hsl(316 70% 50% / 0.1));
+    --gradient-tertiary: linear-gradient(135deg, hsl(217 91% 60%), hsl(189 85% 60%));
+    --gradient-bg: radial-gradient(ellipse 80% 80% at 50% -20%, hsl(263 70% 50% / 0.3), transparent), 
+                   linear-gradient(180deg, hsl(224 71% 4%), hsl(224 71% 2%));
+    --gradient-card: linear-gradient(135deg, hsl(224 71% 4% / 0.8), hsl(216 34% 17% / 0.4));
+    --gradient-radial: radial-gradient(600px circle at var(--mouse-x, 400px) var(--mouse-y, 400px), hsl(263 70% 50% / 0.15), transparent 40%);
 
-    /* Glassmorphism */
-    --glass-bg: hsl(var(--card) / 0.1);
-    --glass-border: hsl(var(--border) / 0.2);
-    --glass-backdrop: blur(16px);
+    /* Glassmorphism & Effects */
+    --glass-bg: hsl(224 71% 4% / 0.1);
+    --glass-border: hsl(216 34% 17% / 0.3);
+    --glass-backdrop: blur(20px) saturate(180%);
+    --glass-overlay: hsl(263 70% 50% / 0.05);
 
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(var(--brand-purple) / 0.3);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
-    --shadow-button: 0 4px 20px hsl(var(--brand-purple) / 0.4);
+    /* Advanced Shadows */
+    --shadow-glow: 0 0 50px hsl(263 70% 50% / 0.4);
+    --shadow-glow-pink: 0 0 50px hsl(316 70% 50% / 0.4);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --shadow-button: 0 4px 20px hsl(263 70% 50% / 0.5);
+    --shadow-hover: 0 20px 40px hsl(263 70% 50% / 0.3);
+    --shadow-inner: inset 0 1px 0 hsl(263 70% 50% / 0.2);
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Premium Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-elastic: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -134,11 +146,25 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Project O Custom Components */
-  .glass-card {
-    @apply backdrop-blur-lg border border-white/10;
+  /* Premium UI Components */
+  .glassmorphism {
     background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glassmorphism::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--glass-overlay);
+    pointer-events: none;
   }
 
   .gradient-text {
@@ -146,6 +172,7 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: 600;
   }
 
   .gradient-border {
@@ -162,53 +189,162 @@ All colors MUST be HSL.
   .btn-gradient {
     background: var(--gradient-primary);
     box-shadow: var(--shadow-button);
-    transition: var(--transition-smooth);
+    transition: var(--transition-spring);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-gradient:hover::before {
+    left: 100%;
   }
 
   .btn-gradient:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px hsl(var(--brand-purple) / 0.6);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-hover);
   }
 
+  .btn-gradient:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  /* Advanced Animations */
   .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .animate-gradient {
+    background-size: 400% 400%;
+    animation: gradient 6s ease infinite;
   }
 
   @keyframes glow {
-    from {
-      box-shadow: 0 0 20px hsl(var(--brand-purple) / 0.4);
+    0% {
+      box-shadow: 0 0 20px hsl(263 70% 50% / 0.4), 0 0 40px hsl(263 70% 50% / 0.2);
     }
-    to {
-      box-shadow: 0 0 40px hsl(var(--brand-purple) / 0.8), 0 0 60px hsl(var(--brand-pink) / 0.4);
+    50% {
+      box-shadow: 0 0 40px hsl(316 70% 50% / 0.6), 0 0 80px hsl(316 70% 50% / 0.3);
+    }
+    100% {
+      box-shadow: 0 0 20px hsl(263 70% 50% / 0.4), 0 0 40px hsl(263 70% 50% / 0.2);
     }
   }
 
-  .drag-zone {
-    @apply border-2 border-dashed transition-all duration-300;
-    border-color: hsl(var(--border));
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
 
-  .drag-zone.drag-over {
-    @apply border-primary;
-    background: var(--gradient-secondary);
-    box-shadow: var(--shadow-glow);
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
   }
 
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Interactive Elements */
   .platform-card {
-    @apply p-6 rounded-lg cursor-pointer transition-all duration-300;
+    @apply p-6 rounded-xl cursor-pointer relative overflow-hidden;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     backdrop-filter: var(--glass-backdrop);
+    transition: var(--transition-spring);
+  }
+
+  .platform-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-radial);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .platform-card:hover::before {
+    opacity: 1;
   }
 
   .platform-card:hover {
-    @apply transform -translate-y-1;
-    background: var(--gradient-secondary);
-    box-shadow: var(--shadow-card);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-color: hsl(263 70% 50% / 0.5);
   }
 
   .platform-card.selected {
-    background: var(--gradient-primary);
+    background: var(--gradient-secondary);
     box-shadow: var(--shadow-glow);
+    border-color: hsl(263 70% 50%);
+  }
+
+  /* Form Elements */
+  .input-glow:focus {
+    box-shadow: 0 0 0 2px hsl(263 70% 50% / 0.3), var(--shadow-glow);
+    border-color: hsl(263 70% 50%);
+  }
+
+  /* Background Effects */
+  .bg-grid {
+    background-image: 
+      linear-gradient(hsl(216 34% 17% / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(216 34% 17% / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(hsl(263 70% 50% / 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
   }
 }
