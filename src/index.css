@@ -556,7 +556,7 @@ All colors MUST be HSL.
   }
 
   .bg-dots {
-    background-image: radial-gradient(hsl(263 70% 50% / 0.08) 2px, transparent 2px);
+    background-image: radial-gradient(hsl(263 70% 50% / 0.25) 2px, transparent 2px);
     background-size: 24px 24px;
   }
 
