@@ -58,12 +58,12 @@ const HeroSection = () => {
             return (
               <span
                 key={index}
-                className={`inline-block opacity-0 animate-word-reveal ${
+                className={`inline-block animate-word-reveal ${
                   isGradientWord ? 'gradient-text animate-glow-text' : 'shimmer-text'
                 }`}
                 style={{ 
                   animationDelay: `${delay}ms`,
-                  animationFillMode: 'forwards'
+                  animationFillMode: 'backwards'
                 }}
               >
                 {word}
