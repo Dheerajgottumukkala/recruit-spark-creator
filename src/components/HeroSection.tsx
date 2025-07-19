@@ -44,11 +44,16 @@ const HeroSection = () => {
           <span className="text-sm font-semibold text-gray-700">AI-Powered Recruitment Revolution</span>
         </div>
 
+        {/* Main Section Heading */}
+        <h2 className="text-lg font-semibold text-purple-700 mb-4 opacity-0 animate-fade-up [animation-delay:200ms] [animation-fill-mode:forwards]">
+          AI-Powered Recruitment Platform
+        </h2>
+
         {/* Animated Main Headline */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
           {titleWords.map((word, index) => {
             const isGradientWord = word === "Recruitment" || word === "AI" || word === "Prompts";
-            const delay = index * 200;
+            const delay = 400 + (index * 200); // Start after section heading
             
             return (
               <span
