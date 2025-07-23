@@ -58,7 +58,7 @@ const HeroSection = () => {
             return (
               <span
                 key={index}
-                className={`inline-block animate-word-reveal ${
+                className={`inline-block animate-word-reveal mr-3 ${
                   isGradientWord ? 'gradient-text animate-glow-text' : 'shimmer-text'
                 }`}
                 style={{ 
@@ -68,7 +68,6 @@ const HeroSection = () => {
               >
                 {word}
                 {index === 1 && <br />}
-                {index < titleWords.length - 1 && index !== 1 && " "}
               </span>
             );
           })}
