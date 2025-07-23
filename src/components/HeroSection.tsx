@@ -67,7 +67,7 @@ const HeroSection = () => {
                 }}
               >
                 {word}
-                {index === 1 && <br />}
+                {index === 2 && <br />}
               </span>
             );
           })}
